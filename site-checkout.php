@@ -125,7 +125,10 @@ $app->post("/checkout", function(){
 
 	$order->save();
 
-	header("Location: /order/".$order->getidorder());
+	//envia o pedido salvo para a sessão.
+	$order->toSession();
+	//header("Location: /order/".$order->getidorder()); //Redireciona para o boleto
+	header("Location: /payment");	
 	exit;
 
 });
