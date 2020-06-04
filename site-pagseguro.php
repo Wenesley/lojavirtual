@@ -2,8 +2,8 @@
 
 use \Hcode\Page;
 use \Hcode\Model\User;
-use \GuzzleHttp\Client;
 use \Hcode\PagSeguro\Config;
+use \Hcode\PagSeguro\Transporter;
 use \Hcode\Model\Order;
 
 
@@ -31,12 +31,16 @@ $app->get('/payment', function(){
 		"msgError"=>Order::getError(),
 		"years"=>$years,
 		"pagseguro"=>[
-			"urlJS"=>Config::getUrlJS()
+			"urlJS"=>Config::getUrlJS(),
+			"id"=>Transporter::createSession()
 		]
 	]);
 });
 
-
+/*
+//rota utilizada somente para testes
+//pega id da sessao, não será utilizado.
+//para esta, foi criado a classe Transporter de forma organizada
 $app->get('/payment/pagseguro', function() {
 
 	$client = new Client();
@@ -47,5 +51,6 @@ $app->get('/payment/pagseguro', function() {
 	echo $res->getBody()->getContents();
 
 });
+*/
 
 ?>
