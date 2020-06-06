@@ -479,7 +479,7 @@
                 params[field.name] = field.value;
 
             });
-            console.log(params);
+            //console.log(params);
 
             PagSeguroDirectPayment.createCardToken({
                cardNumber: params.number, // Número do cartão de crédito
@@ -490,9 +490,23 @@
 
                success: function(response) {
                     // Retorna o cartão tokenizado.
-                    console.log("TOKEN", response);
-                    console.log("HASH", PagSeguroDirectPayment.getSenderHash());
-                    console.log("params", params);
+
+                    params.token = response.card.token;
+                    params.hash = PagSeguroDirectPayment.getSenderHash();
+
+                    //console.log("TOKEN", response.card.token);
+                    //console.log("HASH", PagSeguroDirectPayment.getSenderHash());
+                    //console.log("params", params);
+
+                    $.post(
+
+                        "/payment/credit",
+                        $.param(params),
+                        function(r){
+
+                            console.log(r);
+                        }
+                    );
                },
                error: function(response) {
                     // Callback para chamadas que falharam.
