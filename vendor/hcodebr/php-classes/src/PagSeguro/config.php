@@ -7,7 +7,7 @@ namespace Hcode\PagSeguro;
  */
 class Config
 {
-	const SANDBOX = false;
+	const SANDBOX = true;
 	
 	const SANDBOX_EMAIL = "";
 	const PRODUCTION_EMAIL = "";
