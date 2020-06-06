@@ -13,7 +13,7 @@ class Config
 	const PRODUCTION_EMAIL = "";
 
 	const SANDBOX_TOKEN = "";
-	const PRODUCTION_TOKEN = ""; 
+	const PRODUCTION_TOKEN = "";
 
 	const SANDBOX_SESSIONS = "https://ws.sandbox.pagseguro.uol.com.br/v2/sessions";
     const PRODUCTION_SESSIONS = "https://ws.pagseguro.uol.com.br/v2/sessions";

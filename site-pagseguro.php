@@ -17,10 +17,10 @@ $app->get('/payment', function(){
 
 	$years = [];
 
-	for ($y = date('Y'); $y < date('y')+14; $y++)
-	{
-		array_push($years, $y);
-	}
+    for ($y = date('Y'); $y < date('Y')+14; $y++)
+    {
+        array_push($years, $y);
+    }
 
 	$page = new Page();
 
