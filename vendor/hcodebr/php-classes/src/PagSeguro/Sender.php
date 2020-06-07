@@ -2,6 +2,11 @@
 	
 	namespace Hcode\PagSeguro;
 
+	use Exception;
+	use DOMDocument;
+	use DOMElement;
+	use DateTime;
+
 	class Sender {
 
 		private $name;
@@ -21,7 +26,7 @@
 				throw new Exception("Informe o nome do comprador.");						
 			}
 			
-			if(!filter_list($email, FILTER_VALIDATE_EMAIL))
+			if(!filter_var($email, FILTER_VALIDATE_EMAIL))
 			{
 				throw new Exception("o e-mail informado não é válido.");						
 			}
@@ -49,13 +54,13 @@
 			$sender = $dom->appendChild($sender);
 
 			$name = $dom->createElement("name", $this->name);
-			$name = $document->appendChild($name);
+			$name = $sender->appendChild($name);
 
 			$email = $dom->createElement("email", $this->email);
-			$email = $document->appendChild($email);
+			$email = $sender->appendChild($email);
 
 			$bornDate = $dom->createElement("bornDate", $this->bornDate->format("d/m/Y"));
-			$bornDate = $document->appendChild($bornDate);
+			$bornDate = $sender->appendChild($bornDate);
 
 			$documents = $dom->createElement("documents");
 			$documents = $sender->appendChild($documents);
@@ -69,10 +74,10 @@
 			$phone = $documents->appendChild($phone);
 
 			$hash = $dom->createElement("hash", $this->hash);
-			$hash = $document->appendChild($hash);
+			$hash = $sender->appendChild($hash);
 
 			$ip = $dom->createElement("ip", $this->ip);
-			$ip = $document->appendChild($ip);
+			$ip = $sender->appendChild($ip);
 
 			return $sender;
 		}

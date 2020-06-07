@@ -2,6 +2,13 @@
 	
 	namespace Hcode\PagSeguro;
 
+	use Exception;
+	use DOMDocument;
+	use DOMElement;		
+	use Hcode\PagSeguro\Address;
+	use Hcode\PagSeguro\CreditCard\Installment;
+	use Hcode\PagSeguro\CreditCard\Holder;
+
 	class CreditCard {
 
 		private $token;
@@ -9,7 +16,7 @@
 		private $holder;
 		private $billingAddress;
 
-		public function __construct(Stirng $token, Installment $installment, Holder $holder, Address $billingAddress)
+		public function __construct(string $token, Installment $installment, Holder $holder, Address $billingAddress)
 		{
 
 			if(!$token)

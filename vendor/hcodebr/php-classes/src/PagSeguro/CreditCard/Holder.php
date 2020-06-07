@@ -1,6 +1,13 @@
 <?php
 
-	namespace Hcode\PagSeguro\CreditCard
+	namespace Hcode\PagSeguro\CreditCard;
+
+	use Exception;
+	use DOMDocument;
+	use DOMElement;	
+	use DateTime;
+	use Hcode\PagSeguro\Document;
+	use Hcode\PagSeguro\Phone;
 
 	class Holder {
 
@@ -20,7 +27,7 @@
 
 			$this->name = $name;
 			$this->cpf = $cpf;
-			$this->birthDate = $bornDate;
+			$this->birthDate = $birthDate;
 			$this->phone = $phone;			
 		}
 
@@ -33,10 +40,10 @@
 			$holder = $dom->appendChild($holder);
 
 			$name = $dom->createElement("name", $this->name);
-			$name = $document->appendChild($name);			
+			$name = $holder->appendChild($name);			
 
 			$birthDate = $dom->createElement("birthDate", $this->birthDate->format("d/m/Y"));
-			$birthDate = $document->appendChild($birthDate);
+			$birthDate = $holder->appendChild($birthDate);
 
 			$documents = $dom->createElement("documents");
 			$documents = $holder->appendChild($documents);

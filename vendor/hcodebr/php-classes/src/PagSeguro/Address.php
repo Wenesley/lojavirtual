@@ -2,6 +2,10 @@
 	
 	namespace Hcode\PagSeguro;
 
+	use Exception;
+	use DOMDocument;
+	use DOMElement;
+
 	class Address {
 
 		private $street;
@@ -70,28 +74,28 @@
 			$address = $dom->appendChild($address);
 
 			$street = $dom->createElement("street", $this->street);
-			$street = $document->appendChild($street);
+			$street = $address->appendChild($street);
 
 			$number = $dom->createElement("number", $this->number);
-			$number = $document->appendChild($number);
+			$number = $address->appendChild($number);
 
 			$complement = $dom->createElement("complement", $this->complement);
-			$complement = $document->appendChild($complement);
+			$complement = $address->appendChild($complement);
 
 			$district = $dom->createElement("district", $this->district);
-			$district = $document->appendChild($district);
+			$district = $address->appendChild($district);
 
 			$postalCode = $dom->createElement("postalCode", $this->postalCode);
-			$postalCode = $document->appendChild($postalCode);
+			$postalCode = $address->appendChild($postalCode);
 
 			$city = $dom->createElement("city", $this->city);
-			$city = $document->appendChild($city);
+			$city = $address->appendChild($city);
 
 			$state = $dom->createElement("state", $this->state);
-			$state = $document->appendChild($state);
+			$state = $address->appendChild($state);
 
 			$country = $dom->createElement("country", $this->country);
-			$country = $document->appendChild($country);
+			$country = $address->appendChild($country);
 
 			return $address;
 		}

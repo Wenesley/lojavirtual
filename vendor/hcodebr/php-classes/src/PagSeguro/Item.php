@@ -2,6 +2,10 @@
 	
 	namespace Hcode\PagSeguro;
 
+	use Exception;
+	use DOMDocument;
+	use DOMElement;	
+
 	class Item {
 
 		private $id;
@@ -52,15 +56,15 @@
 			$item = $dom->appendChild($item);
 			
 			$amount = $dom->createElement("amount", number_format($this->amount, 2, ".", ""));
-			$amount = $document->appendChild($amount);
+			$amount = $item->appendChild($amount);
 
 			$quantity = $dom->createElement("quantity", $this->quantity);
-			$quantity = $document->appendChild($quantity);	
+			$quantity = $item->appendChild($quantity);	
 
 			$description = $dom->createElement("description", $this->description);
-			$description = $document->appendChild($description);			
+			$description = $item->appendChild($description);			
 
-			return $installment;
+			return $item;
 		}
 	}
 
