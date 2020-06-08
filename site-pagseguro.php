@@ -97,9 +97,13 @@ $app->post('/payment/credit', function(){
 
 	//$dom->appendChild($testNode);
 
-	$dom = $payment->getDOMDocument();
+	//$dom = $payment->getDOMDocument();
 
-	echo $dom->saveXml();
+	Transporter::sendTransaction($payment);
+
+	echo json_encode([
+		'success'=>true
+	]);
 
 
 	//var_dump($order->getValues());

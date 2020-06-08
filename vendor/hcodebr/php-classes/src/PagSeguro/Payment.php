@@ -119,11 +119,7 @@
 					$bank = $dom->importNode($bank, true);
 					$bank = $payment->appendChild($bank);
 					break;
-			}	
-
-			
-
-						
+			}						
 
 			return $dom;
 
