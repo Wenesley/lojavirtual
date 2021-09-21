@@ -12,22 +12,22 @@ class Config {
 	const SANDBOX_TOKEN = "";
 	const PRODUCTION_TOKEN = ""; 
 
-    const SANDBOX_SESSIONS = "https://ws.sandbox.pagseguro.uol.com.br/v2/sessions";
-    const PRODUCTION_SESSIONS = "https://ws.pagseguro.uol.com.br/v2/sessions";
+    const SANDBOX_SESSIONS = "";
+    const PRODUCTION_SESSIONS = "";
 
-    const SANDBOX_URL_JS = "https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js";
-    const PRODUCTION_URL_JS = "https://stc.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js";
+    const SANDBOX_URL_JS = "";
+    const PRODUCTION_URL_JS = "";
 
-    const SANDBOX_URL_TRANSACTION = "https://ws.sandbox.pagseguro.uol.com.br/v2/transactions";
-    const PRODUCTION_URL_TRANSACTION = "https://ws.pagseguro.uol.com.br/v2/transactions";
+    const SANDBOX_URL_TRANSACTION = "";
+    const PRODUCTION_URL_TRANSACTION = "";
     
-    const SANDBOX_URL_NOTIFICATION = "https://ws.sandbox.pagseguro.uol.com.br/v3/transactions/notifications/";
-	const PRODUCTION_URL_NOTIFICATION =	"https://ws.pagseguro.uol.com.br/v3/transactions/notifications/";
+    const SANDBOX_URL_NOTIFICATION = "";
+	const PRODUCTION_URL_NOTIFICATION =	"";
 
     const MAX_INSTALLMENT_NO_INTEREST = 10;
     const MAX_INSTALLMENT = 10;
 
-    const NOTIFICATION_URL = "http://www.html5dev.com.br/payment/notification";
+    const NOTIFICATION_URL = "";
 
     public static function getAuthentication():array
 	{
